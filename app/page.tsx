@@ -17,177 +17,21 @@ import {
 import { Button } from '@/components/ui/button'
 
 const HeroIllustration = () => (
-  <svg
-    viewBox="0 0 500 400"
-    className="w-full h-auto max-w-lg mx-auto"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    {/* Decorative Background Elements */}
-    <circle cx="100" cy="100" r="80" fill="url(#blue-grad-soft)" />
-    <circle cx="400" cy="300" r="90" fill="url(#green-grad-soft)" />
-    
-    {/* Grid Background pattern */}
-    <defs>
-      <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
-        <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#e2e8f0" strokeWidth="0.5" />
-      </pattern>
-      <linearGradient id="blue-grad-soft" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.08" />
-        <stop offset="100%" stopColor="#93c5fd" stopOpacity="0" />
-      </linearGradient>
-      <linearGradient id="green-grad-soft" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0%" stopColor="#10b981" stopOpacity="0.06" />
-        <stop offset="100%" stopColor="#6ee7b7" stopOpacity="0" />
-      </linearGradient>
-    </defs>
-    <rect width="500" height="400" fill="url(#grid)" opacity="0.3" rx="16" />
-
-    {/* Financial Graph / Wave Lines in background */}
-    <path
-      d="M 50 300 Q 150 180 250 250 T 450 120"
-      stroke="#3b82f6"
-      strokeWidth="3"
-      strokeLinecap="round"
-      opacity="0.5"
-    />
-    <path
-      d="M 50 320 Q 150 220 250 280 T 450 160"
-      stroke="#10b981"
-      strokeWidth="2"
-      strokeLinecap="round"
-      opacity="0.3"
-      strokeDasharray="4 4"
-    />
-    
-    {/* Chart Dots */}
-    <circle cx="250" cy="250" r="6" fill="#3b82f6" stroke="white" strokeWidth="2" />
-    <circle cx="450" cy="120" r="6" fill="#10b981" stroke="white" strokeWidth="2" />
-    <circle cx="150" cy="215" r="4" fill="#3b82f6" opacity="0.7" />
-
-    {/* Floating Dashboard Card 1 (Top Left) */}
-    <g transform="translate(40, 60)">
-      <rect
-        width="130"
-        height="65"
-        rx="10"
-        fill="white"
-        filter="drop-shadow(0 4px 12px rgba(0, 0, 0, 0.05))"
-        stroke="#e2e8f0"
-        strokeWidth="1"
-      />
-      <circle cx="28" cy="32" r="14" fill="#dbeafe" />
-      <path
-        d="M 23 32 L 27 36 L 33 30"
-        stroke="#2563eb"
-        strokeWidth="2.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <text x="50" y="30" fontFamily="sans-serif" fontSize="11" fontWeight="bold" fill="#1e293b">
-        Life Goals
-      </text>
-      <text x="50" y="44" fontFamily="sans-serif" fontSize="9" fill="#64748b">
-        100% Planned
-      </text>
-    </g>
-
-    {/* Floating Dashboard Card 2 (Bottom Right) */}
-    <g transform="translate(320, 250)">
-      <rect
-        width="140"
-        height="85"
-        rx="10"
-        fill="white"
-        filter="drop-shadow(0 4px 12px rgba(0, 0, 0, 0.05))"
-        stroke="#e2e8f0"
-        strokeWidth="1"
-      />
-      <text x="16" y="24" fontFamily="sans-serif" fontSize="11" fontWeight="bold" fill="#1e293b">
-        Growth Target
-      </text>
-      <rect x="16" y="34" width="108" height="6" rx="3" fill="#e2e8f0" />
-      <rect x="16" y="34" width="85" height="6" rx="3" fill="#10b981" />
-      <text x="16" y="64" fontFamily="sans-serif" fontSize="18" fontWeight="bold" fill="#10b981">
-        +24.8%
-      </text>
-      <text x="85" y="64" fontFamily="sans-serif" fontSize="9" fill="#64748b">
-        Annualized
-      </text>
-    </g>
-
-    {/* Main Character Illustration */}
-    <g transform="translate(160, 80)">
-      {/* Advisor Body */}
-      <path
-        d="M 80 180 C 80 140 100 120 120 120 C 140 120 160 140 160 180"
-        fill="#eff6ff"
-        stroke="#1e3a8a"
-        strokeWidth="2.5"
-      />
-      
-      {/* Shirt Collar */}
-      <path d="M 110 120 L 120 135 L 130 120" fill="white" stroke="#1e3a8a" strokeWidth="2" />
-      
-      {/* Tie */}
-      <path d="M 120 135 L 117 175 L 120 180 L 123 175 Z" fill="#3b82f6" stroke="#1e3a8a" strokeWidth="1.5" />
-
-      {/* Head */}
-      <circle cx="120" cy="85" r="22" fill="#fff" stroke="#1e3a8a" strokeWidth="2.5" />
-      
-      {/* Hair (Blue Stylized) */}
-      <path
-        d="M 98 85 C 98 70 110 60 125 60 C 138 60 144 72 142 85 C 135 78 128 78 120 83 C 112 78 105 78 98 85 Z"
-        fill="#3b82f6"
-        stroke="#1e3a8a"
-        strokeWidth="2"
-      />
-      
-      {/* Face details */}
-      <circle cx="113" cy="83" r="1.5" fill="#1e3a8a" />
-      <circle cx="127" cy="83" r="1.5" fill="#1e3a8a" />
-      {/* Smile */}
-      <path d="M 116 93 Q 120 97 124 93" stroke="#1e3a8a" strokeWidth="2" strokeLinecap="round" fill="none" />
-
-      {/* Arms & Hands gesturing */}
-      {/* Left arm holding folder */}
-      <path d="M 95 140 Q 75 160 90 190" stroke="#1e3a8a" strokeWidth="2.5" fill="none" strokeLinecap="round" />
-      {/* Folder */}
-      <rect
-        x="55"
-        y="160"
-        width="30"
-        height="25"
-        rx="3"
-        fill="#3b82f6"
-        stroke="#1e3a8a"
-        strokeWidth="2"
-        transform="rotate(-10 70 172)"
-      />
-      
-      {/* Right arm pointing up */}
-      <path d="M 148 135 Q 165 105 160 85" stroke="#1e3a8a" strokeWidth="2.5" fill="none" strokeLinecap="round" />
-      {/* Hand pointing */}
-      <circle cx="160" cy="80" r="5" fill="#fff" stroke="#1e3a8a" strokeWidth="2" />
-      <path d="M 160 76 L 160 70" stroke="#1e3a8a" strokeWidth="2" strokeLinecap="round" />
-    </g>
-
-    {/* Floating Clouds */}
-    <g fill="#fff" stroke="#cbd5e1" strokeWidth="1.5" opacity="0.8">
-      <path d="M 380 60 A 15 15 0 0 1 405 50 A 20 20 0 0 1 435 60 A 15 15 0 0 1 425 80 L 390 80 A 15 15 0 0 1 380 60 Z" />
-      <path d="M 60 220 A 10 10 0 0 1 77 213 A 15 15 0 0 1 97 220 L 67 220 Z" opacity="0.6" />
-    </g>
-  </svg>
+  <img
+    src="/hero.png"
+    alt="Goal Based Investments"
+    className="w-full h-auto max-w-lg mx-auto object-contain"
+  />
 )
 
 export default function Page() {
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false)
 
   return (
-    <div className="flex flex-col min-h-screen bg-white text-gray-800 font-sans">
+    <div className="flex flex-col min-h-screen bg-gradient-to-b from-[#d2e4f9] via-[#e8f1fc] to-white text-gray-800 font-sans">
       
       {/* Sticky Premium Navbar */}
-      <header className="sticky top-0 z-50 w-full border-b border-gray-100 bg-white/90 backdrop-blur-md">
+      <header className="sticky top-0 z-50 w-full border-b border-white/20 bg-white/20 backdrop-blur-md">
         <div className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
           
           {/* Logo and Brand Name */}
@@ -244,28 +88,16 @@ export default function Page() {
             <Link href="#contact" className="hover:text-[#0b4c8c] transition-colors">
               Contact Us
             </Link>
-            <Link href="#signup" className="hover:text-[#0b4c8c] transition-colors">
-              Sign Up
-            </Link>
           </nav>
 
           {/* Action Buttons for Desktop */}
           <div className="hidden lg:flex items-center gap-4">
             <Button
               asChild
-              variant="outline"
-              className="border-gray-800 text-gray-800 hover:bg-gray-50 rounded-[6px] px-5 py-2 text-sm font-semibold transition-all"
-            >
-              <a href="https://clients.saminvestments.in/login" target="_blank" rel="noopener noreferrer">
-                Portfolio Login
-              </a>
-            </Button>
-            <Button
-              asChild
               className="bg-[#2d9d43] text-white hover:bg-[#258537] rounded-[6px] px-5 py-2 text-sm font-semibold transition-all shadow-sm"
             >
               <a href="https://clients.saminvestments.in/login" target="_blank" rel="noopener noreferrer">
-                IFA Login
+                Portfolio Login
               </a>
             </Button>
           </div>
@@ -301,21 +133,11 @@ export default function Page() {
             <div className="flex flex-col gap-3 pt-4 border-t border-gray-100">
               <Button
                 asChild
-                variant="outline"
-                className="border-gray-800 text-gray-800 hover:bg-gray-50 rounded-[6px] w-full text-center"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                <a href="https://clients.saminvestments.in/login" target="_blank" rel="noopener noreferrer">
-                  Portfolio Login
-                </a>
-              </Button>
-              <Button
-                asChild
                 className="bg-[#2d9d43] text-white hover:bg-[#258537] rounded-[6px] w-full text-center"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 <a href="https://clients.saminvestments.in/login" target="_blank" rel="noopener noreferrer">
-                  IFA Login
+                  Portfolio Login
                 </a>
               </Button>
             </div>
@@ -324,7 +146,7 @@ export default function Page() {
       </header>
 
       {/* Main Container */}
-      <main className="flex-1 flex flex-col bg-gradient-to-b from-[#e3effd]/30 via-[#f5f9ff]/20 to-white">
+      <main className="flex-1 flex flex-col">
         
         {/* Hero Section */}
         <section className="relative w-full max-w-7xl mx-auto px-6 lg:px-8 pt-12 pb-24 md:py-20 lg:py-28 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
