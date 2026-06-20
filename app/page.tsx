@@ -256,7 +256,7 @@ export default function Page() {
               variant="outline"
               className="border-gray-800 text-gray-800 hover:bg-gray-50 rounded-[6px] px-5 py-2 text-sm font-semibold transition-all"
             >
-              <a href="https://beta.my-planner.in/login" target="_blank" rel="noopener noreferrer">
+              <a href="https://clients.saminvestments.in/login" target="_blank" rel="noopener noreferrer">
                 Portfolio Login
               </a>
             </Button>
@@ -264,7 +264,7 @@ export default function Page() {
               asChild
               className="bg-[#2d9d43] text-white hover:bg-[#258537] rounded-[6px] px-5 py-2 text-sm font-semibold transition-all shadow-sm"
             >
-              <a href="https://beta.my-planner.in/login" target="_blank" rel="noopener noreferrer">
+              <a href="https://clients.saminvestments.in/login" target="_blank" rel="noopener noreferrer">
                 IFA Login
               </a>
             </Button>
@@ -305,7 +305,7 @@ export default function Page() {
                 className="border-gray-800 text-gray-800 hover:bg-gray-50 rounded-[6px] w-full text-center"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                <a href="https://beta.my-planner.in/login" target="_blank" rel="noopener noreferrer">
+                <a href="https://clients.saminvestments.in/login" target="_blank" rel="noopener noreferrer">
                   Portfolio Login
                 </a>
               </Button>
@@ -314,7 +314,7 @@ export default function Page() {
                 className="bg-[#2d9d43] text-white hover:bg-[#258537] rounded-[6px] w-full text-center"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                <a href="https://beta.my-planner.in/login" target="_blank" rel="noopener noreferrer">
+                <a href="https://clients.saminvestments.in/login" target="_blank" rel="noopener noreferrer">
                   IFA Login
                 </a>
               </Button>
@@ -363,7 +363,7 @@ export default function Page() {
                   Check your investment, scheme wise, folio wise, and get real-time tracking performance.
                 </p>
                 <Link
-                  href="https://beta.my-planner.in/login"
+                  href="https://clients.saminvestments.in/login"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="mt-auto text-sm font-semibold text-[#0b4c8c] hover:text-[#0f5ca8] flex items-center gap-1 group"
@@ -382,7 +382,7 @@ export default function Page() {
                   Now invest 24*7 in the top-performing mutual fund schemes with secure transaction portals.
                 </p>
                 <Link
-                  href="https://beta.my-planner.in/login"
+                  href="https://clients.saminvestments.in/login"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="mt-auto text-sm font-semibold text-[#0b4c8c] hover:text-[#0f5ca8] flex items-center gap-1 group"
@@ -468,7 +468,7 @@ export default function Page() {
               asChild
               className="bg-[#0b4c8c] text-white hover:bg-[#0f5ca8] rounded-full px-8 py-2 font-semibold shadow-md"
             >
-              <a href="https://beta.my-planner.in/login" target="_blank" rel="noopener noreferrer">
+              <a href="https://clients.saminvestments.in/login" target="_blank" rel="noopener noreferrer">
                 Portfolio Login
               </a>
             </Button>
