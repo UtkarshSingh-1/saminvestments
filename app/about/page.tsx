@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button'
 
 export const metadata: Metadata = {
   title: 'About Us - SAM Investments',
-  description: 'Learn about SAM Investments - 15+ years of trusted financial advisory in Delhi. AMFI registered, client-focused investment & taxation experts.',
+  description: 'Learn about SAM Investments - 15+ years of trusted financial guidance in Delhi. AMFI registered, client-focused investment & taxation experts.'
 }
 
 export default function AboutPage() {
@@ -31,7 +31,7 @@ export default function AboutPage() {
             </div>
             <h2 className="text-3xl font-bold text-gray-900 mb-6">Who We Are</h2>
             <p className="text-gray-600 leading-relaxed mb-5">
-              <strong>SAM Investments</strong> is a Delhi-based financial advisory firm specializing in Goal-Based Investments, Mutual Funds, Tax Planning, ITR Filing, and Life & Health Insurance.
+              <strong>SAM Investments</strong> is a Delhi-based financial services firm specializing in Goal-Based Investments, Mutual Funds, Tax Planning, ITR Filing, and Life & Health Insurance.
             </p>
             <p className="text-gray-600 leading-relaxed mb-5">
               We believe that every individual deserves personalized financial guidance. Our approach starts with understanding your life goals — whether it's buying a home, planning for children's education, retirement, or wealth creation — and then crafting an investment strategy aligned to those goals.
@@ -44,7 +44,7 @@ export default function AboutPage() {
                 'AMFI Registered Mutual Fund Distributor',
                 'Expert Tax Planning & ITR filing team',
                 'Partnerships with all leading insurance companies',
-                'Transparent advisory with no hidden charges',
+                'Transparent guidance with no hidden charges',
                 'Dedicated relationship manager for every client',
               ].map((pt) => (
                 <div key={pt} className="flex items-start gap-3">
@@ -65,7 +65,7 @@ export default function AboutPage() {
             <div className="bg-gradient-to-br from-orange-50 to-orange-100 rounded-2xl p-8">
               <h3 className="text-xl font-bold text-gray-900 mb-4">Our Vision</h3>
               <p className="text-gray-600 leading-relaxed">
-                To be the most trusted and preferred financial advisory firm in Delhi-NCR, known for our integrity, expertise, and client-centric approach.
+                To be the most trusted and preferred financial services firm in Delhi-NCR, known for our integrity, expertise, and client-centric approach.
               </p>
             </div>
             <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-8">
@@ -105,7 +105,7 @@ export default function AboutPage() {
           <p className="text-gray-600 mb-12 max-w-2xl mx-auto">Our team brings together expertise across investments, taxation, and insurance to deliver comprehensive financial solutions.</p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { icon: <TrendingUp className="w-8 h-8 text-blue-600" />, title: 'Investment Advisory', desc: 'Expert guidance in Mutual Funds, SIP, Portfolio Management & Goal-Based Investing.' },
+              { icon: <TrendingUp className="w-8 h-8 text-blue-600" />, title: 'Investment Planning', desc: 'Expert guidance in Mutual Funds, SIP, Portfolio Management & Goal-Based Investing.' },
               { icon: <ShieldCheck className="w-8 h-8 text-orange-500" />, title: 'Tax & Compliance', desc: 'Comprehensive tax planning, ITR filing, and compliance services for individuals & businesses.' },
               { icon: <Heart className="w-8 h-8 text-green-600" />, title: 'Insurance Planning', desc: 'Customized life & health insurance solutions to protect you and your loved ones.' },
             ].map((item) => (

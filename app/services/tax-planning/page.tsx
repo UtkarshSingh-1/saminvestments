@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button'
 
 export const metadata: Metadata = {
   title: 'Tax Planning & ITR Filing – SAM Investments',
-  description: 'Expert tax planning and ITR filing services in Delhi. Save maximum tax legally. Individual, business, and NRI tax advisory.',
+  description: 'Expert tax planning and ITR filing services in Delhi. Save maximum tax legally. Individual, business, and NRI tax guidance.',
 }
 
 const services = [
@@ -24,7 +24,7 @@ const services = [
   {
     icon: <Receipt className="w-7 h-7" />,
     title: 'Capital Gains Tax',
-    desc: 'Expert advisory on capital gains from mutual funds, stocks, property, and other assets.',
+    desc: 'Expert guidance on capital gains from mutual funds, stocks, property, and other assets.',
     color: 'bg-green-600',
   },
   {
@@ -64,7 +64,7 @@ export default function TaxPlanningPage() {
       <section className="bg-gradient-to-r from-[#7c3a00] to-[#c45c1a] text-white py-20 px-6">
         <div className="max-w-4xl mx-auto text-center">
           <div className="inline-flex items-center gap-2 bg-white/10 rounded-full px-4 py-1.5 text-sm font-medium mb-6">
-            <Calculator className="w-4 h-4" /> Expert Tax Advisory
+            <Calculator className="w-4 h-4" /> Expert Tax Guidance
           </div>
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Tax Planning & ITR Filing</h1>
           <p className="text-orange-100 text-lg max-w-2xl mx-auto mb-8">
@@ -143,7 +143,7 @@ export default function TaxPlanningPage() {
               'Maximum legitimate tax savings',
               'Quick turnaround — same day filing available',
               'Assistance with tax notices and scrutiny',
-              'Year-round tax planning advisory',
+              'Year-round tax planning guidance',
               'Affordable pricing, no hidden charges',
               'Secure data handling and confidentiality',
             ].map((pt) => (

@@ -99,15 +99,25 @@ export default function ContactPage() {
             <div className="rounded-2xl overflow-hidden shadow-md border border-gray-100">
               <iframe
                 title="SAM Investments Office Location"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3504.387856143847!2d77.22742097549765!3d28.573046875696!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce3b4e1d4f4a7%3A0x9c9c1b1b1b1b1b1b!2sDefence%20Colony%2C%20New%20Delhi%2C%20Delhi%20110024!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+                src="https://maps.google.com/maps?q=SAM+Investments+%26+Taxation+Defence+Colony+New+Delhi+110024&output=embed&z=17"
                 width="100%"
-                height="240"
+                height="260"
                 style={{ border: 0 }}
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               />
             </div>
+            {/* Open in Google Maps button */}
+            <a
+              href="https://www.google.com/maps/search/SAM+Investments+%26+Taxation+Defence+Colony+New+Delhi+110024"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2 w-full bg-[#0b4c8c] hover:bg-[#0f5ca8] text-white text-sm font-semibold rounded-xl py-3 transition-colors"
+            >
+              <MapPin className="w-4 h-4" />
+              Open SAM Investments in Google Maps
+            </a>
           </div>
 
           {/* Contact Form */}

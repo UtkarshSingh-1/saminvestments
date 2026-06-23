@@ -9,7 +9,7 @@ import { Button } from '@/components/ui/button'
 
 export const metadata: Metadata = {
   title: 'Products & Services – SAM Investments',
-  description: 'SAM Investments offers Mutual Funds, Tax Planning & ITR Filing, Life & Health Insurance. Expert financial advisory in Defence Colony, New Delhi.',
+  description: 'SAM Investments offers Mutual Funds, Tax Planning & ITR Filing, Life & Health Insurance. Expert financial guidance in Defence Colony, New Delhi.',
 }
 
 export default function ServicesPage() {
@@ -118,7 +118,7 @@ export default function ServicesPage() {
             </div>
             <div>
               <h2 className="text-3xl font-bold text-gray-900">Tax Planning & ITR Filing</h2>
-              <p className="text-gray-500 mt-1">Save more, stress less — expert tax advisory</p>
+              <p className="text-gray-500 mt-1">Save more, stress less — expert tax guidance</p>
             </div>
           </div>
 
@@ -131,7 +131,7 @@ export default function ServicesPage() {
             {[
               { icon: <FileText className="w-6 h-6" />, title: 'ITR Filing', desc: 'Accurate, on-time filing for individuals, salaried, and freelancers.', color: 'bg-blue-600' },
               { icon: <Calculator className="w-6 h-6" />, title: 'Tax Planning', desc: 'Save max tax via 80C, 80D, HRA, NPS and other deductions.', color: 'bg-orange-500' },
-              { icon: <Receipt className="w-6 h-6" />, title: 'Capital Gains', desc: 'Advisory on gains from mutual funds, stocks, and property.', color: 'bg-green-600' },
+              { icon: <Receipt className="w-6 h-6" />, title: 'Capital Gains', desc: 'Guidance on gains from mutual funds, stocks, and property.', color: 'bg-green-600' },
               { icon: <ShieldCheck className="w-6 h-6" />, title: 'TDS & Compliance', desc: 'TDS computation, filing, and year-round compliance.', color: 'bg-purple-600' },
               { icon: <AlertCircle className="w-6 h-6" />, title: 'Notice Handling', desc: 'Expert help in responding to Income Tax notices.', color: 'bg-red-500' },
               { icon: <FileText className="w-6 h-6" />, title: 'GST Returns', desc: 'Monthly & quarterly GST filing for businesses.', color: 'bg-teal-600' },
