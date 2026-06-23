@@ -7,7 +7,6 @@ import { ChevronDown, Menu, X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 const navLinks = [
-  { label: 'Home', href: '/' },
   { label: 'About Us', href: '/about' },
   { label: 'Products & Services', href: '/services' },
 ]
@@ -80,7 +79,24 @@ export default function Navbar() {
         </nav>
 
         {/* Action Buttons Desktop */}
-        <div className="hidden lg:flex items-center gap-4">
+        <div className="hidden lg:flex items-center gap-3">
+          {/* WealthSys Icon Button */}
+          <a
+            href="https://saminvestment.wealthsys.app/login"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Invest via WealthSys"
+            className="flex items-center justify-center hover:opacity-80 transition-opacity"
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/coin-space-logo.jpeg"
+              alt="WealthSys"
+              style={{ height: '40px', width: '40px', borderRadius: '10px', objectFit: 'cover' }}
+            />
+          </a>
+
+          {/* Portfolio Login */}
           <Button asChild className="bg-[#2d9d43] text-white hover:bg-[#258537] rounded-[6px] px-5 py-2 text-sm font-semibold transition-all shadow-sm">
             <a href="https://beta.my-planner.in/login" target="_blank" rel="noopener noreferrer">
               Portfolio Login
@@ -141,7 +157,22 @@ export default function Navbar() {
             Contact Us
           </Link>
 
-          <div className="pt-4 border-t border-gray-100">
+          <div className="pt-4 border-t border-gray-100 flex flex-col gap-3">
+            {/* WealthSys button mobile */}
+            <a
+              href="https://saminvestment.wealthsys.app/login"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 border border-gray-200 rounded-xl px-4 py-2.5 hover:bg-gray-50 transition-colors"
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/coin-space-logo.jpeg"
+                alt="WealthSys"
+                style={{ height: '32px', width: '32px', borderRadius: '8px', objectFit: 'cover' }}
+              />
+              <span className="text-sm font-semibold text-gray-700">Invest via WealthSys</span>
+            </a>
             <Button asChild className="bg-[#2d9d43] text-white hover:bg-[#258537] rounded-[6px] w-full text-center">
               <a href="https://beta.my-planner.in/login" target="_blank" rel="noopener noreferrer">
                 Portfolio Login

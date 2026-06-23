@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: 'SAM Investments – Investments & Taxation',
   description: 'SAM Investments – Goal Based Investments, Mutual Funds, Tax Planning, ITR Filing & Insurance. Based in Defence Colony, New Delhi.',
-  keywords: 'SAM Investments, Mutual Funds, SIP, Tax Planning, ITR Filing, Life Insurance, Health Insurance, Investment Advisor, Defence Colony, Delhi',
+  keywords: 'SAM Investments, Mutual Funds, SIP, Tax Planning, ITR Filing, Life Insurance, Health Insurance, Financial Planning, Defence Colony, Delhi',
   icons: {
     icon: [
       { url: '/icon-light-32x32.png', media: '(prefers-color-scheme: light)' },

@@ -63,7 +63,7 @@ export default function Footer() {
             © {new Date().getFullYear()} SAM Investments. All rights reserved. AMFI Registered Mutual Fund Distributor.
           </p>
           <div className="flex gap-4 text-xs text-blue-300">
-            <span>SEBI Registered Investment Advisor</span>
+            <span>AMFI Registered Mutual Fund Distributor</span>
           </div>
         </div>
       </div>
