@@ -1,72 +1,146 @@
 import Link from 'next/link'
-import { Phone, Mail, MapPin, ExternalLink } from 'lucide-react'
-import { Button } from '@/components/ui/button'
+import { Phone, Mail, MapPin, ExternalLink, Clock } from 'lucide-react'
 
 export default function Footer() {
   return (
-    <footer className="border-t border-gray-200 bg-[#0a2d5e] text-white">
-      <div className="max-w-7xl mx-auto px-6 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+    <footer className="bg-[#071e3d] text-white">
 
-          {/* Brand */}
-          <div className="flex flex-col gap-4 lg:col-span-1">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/sam-logo.webp" alt="SAM Investments" style={{ height: '52px', width: 'auto', objectFit: 'contain', background: 'white', borderRadius: '8px', padding: '4px 8px' }} />
-            <p className="text-sm text-blue-200 leading-relaxed mt-2">
-              Empowering individuals & businesses with intelligent investment solutions, financial planning, and robust taxation expertise.
+      {/* Top section */}
+      <div className="max-w-7xl mx-auto px-6 pt-16 pb-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+          {/* Brand Column */}
+          <div className="lg:col-span-1 flex flex-col gap-5">
+            {/* Logo on dark — show as text branding with colored accent */}
+            <div className="flex flex-col gap-1">
+              <span className="text-2xl font-bold tracking-tight text-white">
+                SAM <span className="text-[#4da6ff]">Investments</span>
+              </span>
+              <span className="text-xs font-medium text-blue-300 tracking-widest uppercase">
+                Investments &amp; Taxation
+              </span>
+            </div>
+            <p className="text-sm text-slate-400 leading-relaxed">
+              Helping individuals, families, and businesses build wealth, reduce tax liability, and stay protected — since 2008.
             </p>
+            {/* Badges */}
+            <div className="flex flex-col gap-2 mt-1">
+              <span className="inline-flex items-center gap-1.5 text-xs text-blue-300 bg-blue-900/40 border border-blue-800/50 rounded-full px-3 py-1 w-fit">
+                ✓ AMFI Registered Distributor
+              </span>
+              <span className="inline-flex items-center gap-1.5 text-xs text-green-300 bg-green-900/30 border border-green-800/40 rounded-full px-3 py-1 w-fit">
+                ✓ Est. 2008 · 15+ Years
+              </span>
+            </div>
           </div>
 
           {/* Quick Links */}
-          <div className="flex flex-col gap-3">
-            <h3 className="font-bold text-white text-base mb-1">Quick Links</h3>
-            <Link href="/" className="text-sm text-blue-200 hover:text-white transition-colors">Home</Link>
-            <Link href="/about" className="text-sm text-blue-200 hover:text-white transition-colors">About Us</Link>
-            <Link href="/services" className="text-sm text-blue-200 hover:text-white transition-colors">Products & Services</Link>
-            <Link href="/contact" className="text-sm text-blue-200 hover:text-white transition-colors">Contact Us</Link>
+          <div className="flex flex-col gap-4">
+            <h3 className="text-sm font-bold text-white uppercase tracking-widest">Quick Links</h3>
+            <div className="flex flex-col gap-2.5">
+              {[
+                { label: 'About Us', href: '/about' },
+                { label: 'Products & Services', href: '/services' },
+                { label: 'Financial Calculators', href: '/investor-zone/calculators' },
+                { label: 'Market Updates', href: '/investor-zone/market-updates' },
+                { label: 'Contact Us', href: '/contact' },
+              ].map(link => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="text-sm text-slate-400 hover:text-white transition-colors flex items-center gap-1.5 group"
+                >
+                  <span className="w-1 h-1 bg-blue-500 rounded-full group-hover:bg-white transition-colors shrink-0" />
+                  {link.label}
+                </Link>
+              ))}
+            </div>
           </div>
 
-          {/* Contact Info */}
+          {/* Contact */}
           <div className="flex flex-col gap-4">
-            <h3 className="font-bold text-white text-base mb-1">Contact Information</h3>
-            <div className="flex flex-col gap-3 text-sm text-blue-200">
-              <a href="tel:+919810141662" className="flex items-center gap-2 hover:text-white transition-colors">
-                <Phone className="w-4 h-4 text-[#4da6ff] shrink-0" /> +91-9810141662
+            <h3 className="text-sm font-bold text-white uppercase tracking-widest">Contact</h3>
+            <div className="flex flex-col gap-3">
+              <a
+                href="tel:+919810141662"
+                className="flex items-center gap-3 text-sm text-slate-400 hover:text-white transition-colors group"
+              >
+                <span className="w-8 h-8 bg-blue-900/50 rounded-lg flex items-center justify-center shrink-0 group-hover:bg-blue-700 transition-colors">
+                  <Phone className="w-3.5 h-3.5 text-blue-400" />
+                </span>
+                +91-9810141662
               </a>
-              <a href="mailto:premansu2004@gmail.com" className="flex items-center gap-2 hover:text-white transition-colors">
-                <Mail className="w-4 h-4 text-[#4da6ff] shrink-0" /> premansu2004@gmail.com
+              <a
+                href="mailto:premansu2004@gmail.com"
+                className="flex items-center gap-3 text-sm text-slate-400 hover:text-white transition-colors group"
+              >
+                <span className="w-8 h-8 bg-blue-900/50 rounded-lg flex items-center justify-center shrink-0 group-hover:bg-blue-700 transition-colors">
+                  <Mail className="w-3.5 h-3.5 text-blue-400" />
+                </span>
+                premansu2004@gmail.com
               </a>
-              <p className="flex items-start gap-2">
-                <MapPin className="w-4 h-4 text-[#4da6ff] shrink-0 mt-0.5" />
-                <span>410, A Block, Block A, Defence Colony,<br />New Delhi, Delhi 110024</span>
-              </p>
+              <div className="flex items-start gap-3 text-sm text-slate-400">
+                <span className="w-8 h-8 bg-blue-900/50 rounded-lg flex items-center justify-center shrink-0 mt-0.5">
+                  <MapPin className="w-3.5 h-3.5 text-blue-400" />
+                </span>
+                <span className="leading-relaxed">
+                  410, A Block, Defence Colony,<br />New Delhi – 110024
+                </span>
+              </div>
             </div>
           </div>
 
           {/* Hours & CTA */}
           <div className="flex flex-col gap-4">
-            <h3 className="font-bold text-white text-base mb-1">Office Hours</h3>
-            <p className="text-sm text-blue-200">Monday – Saturday<br />10:00 AM – 6:00 PM</p>
-            <p className="text-sm text-blue-200">Sunday: Closed</p>
-            <Button asChild className="mt-4 bg-[#2d9d43] text-white hover:bg-[#258537] rounded-full px-6 py-2 font-semibold shadow-md w-fit">
-              <a href="https://beta.my-planner.in/login" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
-                Portfolio Login <ExternalLink className="w-4 h-4" />
+            <h3 className="text-sm font-bold text-white uppercase tracking-widest">Office Hours</h3>
+            <div className="flex items-start gap-3 text-sm text-slate-400">
+              <span className="w-8 h-8 bg-blue-900/50 rounded-lg flex items-center justify-center shrink-0">
+                <Clock className="w-3.5 h-3.5 text-blue-400" />
+              </span>
+              <div>
+                <p className="text-white font-medium mb-0.5">Mon – Sat</p>
+                <p>10:00 AM – 6:00 PM</p>
+                <p className="text-slate-500 mt-1">Sunday: Closed</p>
+              </div>
+            </div>
+
+            {/* CTA Buttons */}
+            <div className="flex flex-col gap-2 mt-2">
+              <a
+                href="https://beta.my-planner.in/login"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 bg-[#2d9d43] hover:bg-[#258537] text-white text-sm font-semibold rounded-lg px-4 py-2.5 transition-colors w-full"
+              >
+                Portfolio Login <ExternalLink className="w-3.5 h-3.5" />
               </a>
-            </Button>
+              <a
+                href="https://saminvestment.wealthsys.app/login"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 bg-[#0b4c8c] hover:bg-[#0f5ca8] text-white text-sm font-semibold rounded-lg px-4 py-2.5 transition-colors w-full"
+              >
+                Invest Online <ExternalLink className="w-3.5 h-3.5" />
+              </a>
+            </div>
           </div>
 
-        </div>
-
-        {/* Bottom Bar */}
-        <div className="flex flex-col sm:flex-row items-center justify-between pt-8 border-t border-blue-800/50 gap-4">
-          <p className="text-xs text-blue-300 text-center sm:text-left">
-            © {new Date().getFullYear()} SAM Investments. All rights reserved. AMFI Registered Mutual Fund Distributor.
-          </p>
-          <div className="flex gap-4 text-xs text-blue-300">
-            <span>AMFI Registered Mutual Fund Distributor</span>
-          </div>
         </div>
       </div>
+
+      {/* Divider */}
+      <div className="border-t border-white/10 mx-6" />
+
+      {/* Bottom bar */}
+      <div className="max-w-7xl mx-auto px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <p className="text-xs text-slate-500 text-center sm:text-left">
+          © {new Date().getFullYear()} SAM Investments. All rights reserved.
+        </p>
+        <p className="text-xs text-slate-500 text-center sm:text-right">
+          AMFI Registered Mutual Fund Distributor · ARN Registered
+        </p>
+      </div>
+
     </footer>
   )
 }
