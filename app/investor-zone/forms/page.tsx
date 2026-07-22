@@ -23,7 +23,13 @@ const profiles = [
 ]
 
 // AMC List with corresponding uploaded filenames
-const amcList = [
+const amcList: {
+  id: string
+  name: string
+  logoBg: string
+  commonFile: string | null
+  sipFile: string | null
+}[] = [
   {
     id: 'axis',
     name: 'Axis Mutual Fund',
@@ -35,7 +41,7 @@ const amcList = [
     id: 'bandhan',
     name: 'Bandhan Mutual Fund',
     logoBg: 'bg-orange-50 text-orange-700 border-orange-100',
-    commonFile: 'Bandhan_Common_Transaction_Slip.pdf',
+    commonFile: null, // removed: had another distributor's ARN-272753/E513200 pre-filled
     sipFile: 'Bandhan_SIP_Form.pdf'
   },
   {
@@ -57,7 +63,7 @@ const amcList = [
     name: 'HDFC Mutual Fund',
     logoBg: 'bg-emerald-50 text-emerald-700 border-emerald-100',
     commonFile: 'HDFC_Common_Transaction_Slip.pdf',
-    sipFile: 'HDFC_SIP_Form.pdf'
+    sipFile: null, // removed: had another distributor's EUIN (E100378) pre-filled
   },
   {
     id: 'icici',
@@ -106,7 +112,7 @@ const amcList = [
     name: 'Nippon India Mutual Fund',
     logoBg: 'bg-blue-50 text-[#0b4c8c] border-blue-100',
     commonFile: 'Nippon_Common_Transaction_Slip.pdf',
-    sipFile: 'Nippon_SIP_Form.pdf'
+    sipFile: null, // removed: had another distributor's EUIN (E347831) pre-filled
   },
   {
     id: 'sundaram',
@@ -266,8 +272,9 @@ export default function FormsPage() {
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-auto">
                     {/* Common Application Form */}
+                    {amc.commonFile && (
                     <button
-                      onClick={() => handleDownload(amc.commonFile, `${amc.name} Common Application Form`)}
+                      onClick={() => handleDownload(amc.commonFile!, `${amc.name} Common Application Form`)}
                       disabled={downloadingFile !== null}
                       className="flex items-center justify-center gap-2 py-3 px-4 bg-gray-50 hover:bg-[#0b4c8c]/5 hover:text-[#0b4c8c] text-gray-700 text-xs font-semibold rounded-xl border border-gray-100 hover:border-[#0b4c8c]/20 transition-all cursor-pointer disabled:opacity-50"
                     >
@@ -278,10 +285,12 @@ export default function FormsPage() {
                       )}
                       <span>Common Application Form</span>
                     </button>
+                    )}
 
                     {/* SIP Form */}
+                    {amc.sipFile && (
                     <button
-                      onClick={() => handleDownload(amc.sipFile, `${amc.name} SIP Form`)}
+                      onClick={() => handleDownload(amc.sipFile!, `${amc.name} SIP Form`)}
                       disabled={downloadingFile !== null}
                       className="flex items-center justify-center gap-2 py-3 px-4 bg-[#2d9d43]/5 hover:bg-[#2d9d43]/10 text-[#2d9d43] hover:text-[#258537] text-xs font-bold rounded-xl border border-[#2d9d43]/10 hover:border-[#2d9d43]/20 transition-all cursor-pointer disabled:opacity-50"
                     >
@@ -292,6 +301,7 @@ export default function FormsPage() {
                       )}
                       <span>SIP Form</span>
                     </button>
+                    )}
                   </div>
                 </div>
               ))}
