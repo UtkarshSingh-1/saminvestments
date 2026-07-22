@@ -20,6 +20,9 @@ export async function prefillPDF(
   const pdfDoc = await PDFDocument.load(arrayBuffer);
   
   // 1. Try filling interactive form fields if present
+  let filledArnInteractive = false;
+  let filledEuinInteractive = false;
+
   try {
     const form = pdfDoc.getForm();
     if (form) {
@@ -34,10 +37,12 @@ export async function prefillPDF(
         if (!isSubField && (cleanName.includes('arn') || cleanName.includes('broker') || cleanName.includes('agent'))) {
           if (typeof (field as any).setText === 'function') {
             (field as any).setText(arn);
+            filledArnInteractive = true;
           }
         } else if (cleanName.includes('euin')) {
           if (typeof (field as any).setText === 'function') {
             (field as any).setText(euin);
+            filledEuinInteractive = true;
           }
         }
       }
@@ -100,7 +105,7 @@ export async function prefillPDF(
       }
 
       // Draw ARN
-      if (coords.arn) {
+      if (coords.arn && !filledArnInteractive) {
         // Draw the full ARN (e.g. ARN-103065)
         page.drawText(arn, {
           x: coords.arn.x,
@@ -112,7 +117,7 @@ export async function prefillPDF(
       }
       
       // Draw EUIN
-      if (coords.euin && euin) {
+      if (coords.euin && euin && !filledEuinInteractive) {
         page.drawText(euin, {
           x: coords.euin.x,
           y: coords.euin.y,
