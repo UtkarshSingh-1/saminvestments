@@ -14,6 +14,7 @@ const navLinks = [
 const investorLinks = [
   { label: 'Financial Calculators', href: '/investor-zone/calculators' },
   { label: 'Market Updates', href: '/investor-zone/market-updates' },
+  { label: 'Forms & Downloads', href: '/investor-zone/forms' },
 ]
 
 export default function Navbar() {
