@@ -174,10 +174,8 @@ export async function downloadPrefilledPDF(
     const pdfBytes = await prefillPDF(fileName, arn, euin);
     const blob = new Blob([pdfBytes], { type: 'application/pdf' });
     
-    // Construct nice looking output filename: Axis_SIP_Form_Prefilled.pdf
-    const baseName = fileName.replace('.pdf', '');
-    const cleanName = baseName.replace(/_/g, ' ');
-    const downloadName = `${cleanName} (Prefilled).pdf`;
+    // Construct nice looking output filename: Axis Mutual Fund Common Application Form (Prefilled).pdf
+    const downloadName = `${displayName} (Prefilled).pdf`;
 
     const link = document.createElement('a');
     link.href = URL.createObjectURL(blob);
