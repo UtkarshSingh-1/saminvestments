@@ -40,8 +40,8 @@ export const formsCoordinates: Record<string, FormCoords> = {
 
   // Edelweiss
   'Edelweiss_Common_Transaction_Slip.pdf': {
-    arn: { x: 30, y: 723, size: 8 },
-    euin: { x: 195, y: 723, size: 8 },
+    arn: { x: 63, y: 698, size: 8 },
+    euin: { x: 175, y: 698, size: 8 },
   },
   'Edelweiss_SIP_Form.pdf': {
     arn: { x: 63, y: 695, size: 8 },
