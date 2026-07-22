@@ -32,18 +32,10 @@ export const formsCoordinates: Record<string, FormCoords> = {
   'Bandhan_Common_Transaction_Slip.pdf': {
     arn: { x: 35, y: 700, size: 8.5 },
     euin: { x: 315, y: 700, size: 8.5 },
-    masks: [
-      { x: 32, y: 692, width: 130, height: 26 },
-      { x: 310, y: 692, width: 140, height: 26 }
-    ]
   },
   'Bandhan_SIP_Form.pdf': {
     arn: { x: 35, y: 700, size: 8.5 },
     euin: { x: 315, y: 700, size: 8.5 },
-    masks: [
-      { x: 32, y: 692, width: 130, height: 26 },
-      { x: 310, y: 692, width: 140, height: 26 }
-    ]
   },
 
   // Edelweiss
