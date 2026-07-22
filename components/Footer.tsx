@@ -43,6 +43,7 @@ export default function Footer() {
                 { label: 'Products & Services', href: '/services' },
                 { label: 'Financial Calculators', href: '/investor-zone/calculators' },
                 { label: 'Market Updates', href: '/investor-zone/market-updates' },
+                { label: 'Forms & Downloads', href: '/investor-zone/forms' },
                 { label: 'Contact Us', href: '/contact' },
               ].map(link => (
                 <Link
