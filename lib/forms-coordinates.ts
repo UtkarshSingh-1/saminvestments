@@ -32,18 +32,10 @@ export const formsCoordinates: Record<string, FormCoords> = {
   'Bandhan_Common_Transaction_Slip.pdf': {
     arn: { x: 35, y: 700, size: 8.5 },
     euin: { x: 315, y: 700, size: 8.5 },
-    masks: [
-      { x: 32, y: 692, width: 130, height: 26 },
-      { x: 310, y: 692, width: 140, height: 26 }
-    ]
   },
   'Bandhan_SIP_Form.pdf': {
-    arn: { x: 35, y: 700, size: 8.5 },
-    euin: { x: 315, y: 700, size: 8.5 },
-    masks: [
-      { x: 32, y: 692, width: 130, height: 26 },
-      { x: 310, y: 692, width: 140, height: 26 }
-    ]
+    arn: { x: 35, y: 694, size: 8 },   // data row (not header which is at y≈702)
+    euin: { x: 315, y: 694, size: 8 }, // EUIN field data row
   },
 
   // Edelweiss
@@ -78,8 +70,8 @@ export const formsCoordinates: Record<string, FormCoords> = {
 
   // Invesco
   'Invesco_SIP_Form.pdf': {
-    arn: { x: 252, y: 720, size: 8 },
-    euin: { x: 360, y: 694, size: 8 },
+    arn: { x: 270, y: 773, size: 7.5 },  // Distributor ARN input box (Key Partner/Agent Info table)
+    euin: { x: 248, y: 756, size: 7.5 }, // Employee Unique Identification No. (EUIN) input row
   },
 
   // JM Financial
@@ -88,8 +80,8 @@ export const formsCoordinates: Record<string, FormCoords> = {
     euin: { x: 138, y: 692, size: 8.5 }, // Calibrated next to E label
   },
   'JM_SIP_Form.pdf': {
-    arn: { x: 52, y: 735, size: 8 },
-    euin: { x: 345, y: 735, size: 8 },
+    arn: { x: 52, y: 745, size: 8 },   // data row in Distributor Code column
+    euin: { x: 345, y: 745, size: 8 }, // Employee Unique column
   },
 
   // Kotak
@@ -125,11 +117,12 @@ export const formsCoordinates: Record<string, FormCoords> = {
 
   // Nippon India
   'Nippon_Common_Transaction_Slip.pdf': {
-    arn: { x: 50, y: 732, size: 8 },
+    arn: { x: 22, y: 762, size: 8 },   // Name & ARN Code column
+    euin: { x: 378, y: 762, size: 8 }, // *Employee Unique Identification Number column
   },
   'Nippon_SIP_Form.pdf': {
-    arn: { x: 30, y: 750, size: 8 }, // Shifted inside ARN Stamp box
-    euin: { x: 365, y: 750, size: 8 }, // Added EUIN coordinate
+    arn: { x: 15, y: 751, size: 8 },   // data row below "Name & ARN Code" header at y=760
+    euin: { x: 358, y: 751, size: 8 }, // *Employee Unique Identification Number column (4th)
   },
 
   // Sundaram
@@ -139,9 +132,10 @@ export const formsCoordinates: Record<string, FormCoords> = {
   },
   'Sundaram_SIP_Form.pdf': {
     arn: { x: 55, y: 775, size: 8 },
-    euin: { x: 268, y: 775, size: 8 },
+    euin: { x: 330, y: 775, size: 7.5 }, // moved from x=268 (Sub-broker col) to EUIN column (4th)
     masks: [
-      { x: 52, y: 770, width: 60, height: 18 }
+      { x: 52, y: 770, width: 60, height: 18 },     // cover pre-printed ARN area
+      { x: 327, y: 770, width: 115, height: 14 }    // cover pre-printed char boxes in EUIN column
     ]
   },
 

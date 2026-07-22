@@ -265,9 +265,9 @@ export default function FormsPage() {
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-auto">
-                    {/* Common Transaction Slip */}
+                    {/* Common Application Form */}
                     <button
-                      onClick={() => handleDownload(amc.commonFile, `${amc.name} Common Slip`)}
+                      onClick={() => handleDownload(amc.commonFile, `${amc.name} Common Application Form`)}
                       disabled={downloadingFile !== null}
                       className="flex items-center justify-center gap-2 py-3 px-4 bg-gray-50 hover:bg-[#0b4c8c]/5 hover:text-[#0b4c8c] text-gray-700 text-xs font-semibold rounded-xl border border-gray-100 hover:border-[#0b4c8c]/20 transition-all cursor-pointer disabled:opacity-50"
                     >
@@ -276,7 +276,7 @@ export default function FormsPage() {
                       ) : (
                         <Download className="w-4 h-4" />
                       )}
-                      <span>Common Slip</span>
+                      <span>Common Application Form</span>
                     </button>
 
                     {/* SIP Form */}
