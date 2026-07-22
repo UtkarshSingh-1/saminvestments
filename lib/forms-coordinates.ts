@@ -40,8 +40,8 @@ export const formsCoordinates: Record<string, FormCoords> = {
 
   // Edelweiss
   'Edelweiss_Common_Transaction_Slip.pdf': {
-    arn: { x: 25, y: 718, size: 8 },
-    euin: { x: 170, y: 718, size: 8 },
+    arn: { x: 30, y: 723, size: 8 },
+    euin: { x: 195, y: 723, size: 8 },
   },
   'Edelweiss_SIP_Form.pdf': {
     arn: { x: 63, y: 695, size: 8 },
@@ -60,8 +60,8 @@ export const formsCoordinates: Record<string, FormCoords> = {
 
   // ICICI
   'ICICI_Common_Transaction_Slip.pdf': {
-    arn: { x: 38, y: 780, size: 8 },
-    euin: { x: 285, y: 780, size: 8 },
+    arn: { x: 38, y: 788, size: 8 },
+    euin: { x: 285, y: 788, size: 8 },
   },
   'ICICI_SIP_Form.pdf': {
     arn: { x: 60, y: 712, size: 8 },
