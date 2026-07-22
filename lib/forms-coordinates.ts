@@ -117,11 +117,12 @@ export const formsCoordinates: Record<string, FormCoords> = {
 
   // Nippon India
   'Nippon_Common_Transaction_Slip.pdf': {
-    arn: { x: 50, y: 732, size: 8 },
+    arn: { x: 22, y: 762, size: 8 },   // Name & ARN Code column
+    euin: { x: 378, y: 762, size: 8 }, // *Employee Unique Identification Number column
   },
   'Nippon_SIP_Form.pdf': {
-    arn: { x: 30, y: 750, size: 8 }, // Shifted inside ARN Stamp box
-    euin: { x: 365, y: 750, size: 8 }, // Added EUIN coordinate
+    arn: { x: 57, y: 761, size: 8 },   // ARN Stamp box
+    euin: { x: 365, y: 761, size: 8 }, // EUIN column
   },
 
   // Sundaram

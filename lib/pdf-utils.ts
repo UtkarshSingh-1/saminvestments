@@ -45,7 +45,9 @@ export async function prefillPDF(
             filledEuinInteractive = true;
           }
         }
-        // Flatten the form to bake all interactive fields into static page text
+      }
+      // Flatten AFTER all fields have been filled (was incorrectly inside the loop)
+      if (filledArnInteractive || filledEuinInteractive) {
         form.flatten();
       }
     }
