@@ -40,8 +40,8 @@ export const formsCoordinates: Record<string, FormCoords> = {
 
   // Edelweiss
   'Edelweiss_Common_Transaction_Slip.pdf': {
-    arn: { x: 120, y: 712, size: 8 },
-    euin: { x: 340, y: 712, size: 8 },
+    arn: { x: 63, y: 698, size: 8 },
+    euin: { x: 175, y: 698, size: 8 },
   },
   'Edelweiss_SIP_Form.pdf': {
     arn: { x: 63, y: 695, size: 8 },
@@ -60,8 +60,8 @@ export const formsCoordinates: Record<string, FormCoords> = {
 
   // ICICI
   'ICICI_Common_Transaction_Slip.pdf': {
-    arn: { x: 38, y: 772, size: 8 },
-    euin: { x: 285, y: 764, size: 8 },
+    arn: { x: 38, y: 788, size: 8 },
+    euin: { x: 285, y: 788, size: 8 },
   },
   'ICICI_SIP_Form.pdf': {
     arn: { x: 60, y: 712, size: 8 },
@@ -70,8 +70,8 @@ export const formsCoordinates: Record<string, FormCoords> = {
 
   // Invesco
   'Invesco_SIP_Form.pdf': {
-    arn: { x: 270, y: 773, size: 7.5 },  // Distributor ARN input box (Key Partner/Agent Info table)
-    euin: { x: 248, y: 756, size: 7.5 }, // Employee Unique Identification No. (EUIN) input row
+    arn: { x: 275, y: 744, size: 7.5 },  // Distributor ARN input box (Key Partner/Agent Info table)
+    euin: { x: 248, y: 715, size: 7.5 }, // Employee Unique Identification No. (EUIN) input row
   },
 
   // JM Financial
@@ -105,7 +105,8 @@ export const formsCoordinates: Record<string, FormCoords> = {
     arn: { x: 194, y: 740, size: 8 },
     euin: { x: 446, y: 740, size: 8 },
     masks: [
-      { x: 190, y: 735, width: 115, height: 18 }
+      { x: 190, y: 735, width: 115, height: 18 },
+      { x: 442, y: 735, width: 65, height: 18 }
     ]
   },
   'Motilal_SIP_Form.pdf': {
@@ -117,8 +118,8 @@ export const formsCoordinates: Record<string, FormCoords> = {
 
   // Nippon India
   'Nippon_Common_Transaction_Slip.pdf': {
-    arn: { x: 22, y: 762, size: 8 },   // Name & ARN Code column
-    euin: { x: 378, y: 762, size: 8 }, // *Employee Unique Identification Number column
+    arn: { x: 22, y: 746, size: 8 },   // Name & ARN Code column data row
+    euin: { x: 378, y: 746, size: 8 }, // *Employee Unique Identification Number column data row
   },
   'Nippon_SIP_Form.pdf': {
     arn: { x: 15, y: 751, size: 8 },   // data row below "Name & ARN Code" header at y=760

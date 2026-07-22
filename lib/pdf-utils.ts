@@ -23,9 +23,11 @@ export async function prefillPDF(
   let filledArnInteractive = false;
   let filledEuinInteractive = false;
 
+  const coords = formsCoordinates[fileName];
+
   try {
     const form = pdfDoc.getForm();
-    if (form) {
+    if (form && !coords) {
       const fields = form.getFields();
       for (const field of fields) {
         const name = field.getName().toLowerCase();
@@ -109,8 +111,7 @@ export async function prefillPDF(
       }
 
       // Draw ARN
-      if (coords.arn && !filledArnInteractive) {
-        // Draw the full ARN (e.g. ARN-103065)
+      if (coords.arn) {
         page.drawText(arn, {
           x: coords.arn.x,
           y: coords.arn.y,
@@ -121,7 +122,7 @@ export async function prefillPDF(
       }
       
       // Draw EUIN
-      if (coords.euin && euin && !filledEuinInteractive) {
+      if (coords.euin && euin) {
         page.drawText(euin, {
           x: coords.euin.x,
           y: coords.euin.y,
