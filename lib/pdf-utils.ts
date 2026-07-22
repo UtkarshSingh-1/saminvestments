@@ -54,13 +54,15 @@ export async function prefillPDF(
       const annots = page.node.Annots();
       if (annots) {
         for (let i = annots.size() - 1; i >= 0; i--) {
-          const annot = annots.lookup(i);
-          const subtypeObj = annot.get(annot.context.obj('Subtype'));
-          if (subtypeObj) {
-            const subtype = subtypeObj.toString();
-            // Remove text, stamp, or freetext overlays that may contain prefilled details
-            if (subtype !== '/Widget') {
-              annots.remove(i);
+          const annot = annots.lookup(i) as any;
+          if (annot && typeof annot.get === 'function') {
+            const subtypeObj = annot.get(annot.context.obj('Subtype'));
+            if (subtypeObj) {
+              const subtype = subtypeObj.toString();
+              // Remove text, stamp, or freetext overlays that may contain prefilled details
+              if (subtype !== '/Widget') {
+                annots.remove(i);
+              }
             }
           }
         }
