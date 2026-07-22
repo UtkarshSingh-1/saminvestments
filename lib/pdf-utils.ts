@@ -45,6 +45,8 @@ export async function prefillPDF(
             filledEuinInteractive = true;
           }
         }
+        // Flatten the form to bake all interactive fields into static page text
+        form.flatten();
       }
     }
   } catch (e) {
