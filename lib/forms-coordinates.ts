@@ -105,7 +105,8 @@ export const formsCoordinates: Record<string, FormCoords> = {
     arn: { x: 194, y: 740, size: 8 },
     euin: { x: 446, y: 740, size: 8 },
     masks: [
-      { x: 190, y: 735, width: 115, height: 18 }
+      { x: 190, y: 735, width: 115, height: 18 },
+      { x: 442, y: 735, width: 65, height: 18 }
     ]
   },
   'Motilal_SIP_Form.pdf': {
