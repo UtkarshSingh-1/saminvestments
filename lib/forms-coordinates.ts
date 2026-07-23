@@ -155,7 +155,7 @@ export const formsCoordinates: Record<string, FormCoords> = {
     euin: { x: 325, y: 680, size: 8 },
   },
   'whiteoak.sip.pdf': {
-    arn: { x: 40, y: 689, size: 8 },
-    euin: { x: 325, y: 689, size: 8 },
+    arn: { x: 45, y: 715, size: 8 },
+    euin: { x: 382, y: 715, size: 8 },
   },
 };
