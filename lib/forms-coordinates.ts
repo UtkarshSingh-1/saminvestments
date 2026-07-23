@@ -54,8 +54,8 @@ export const formsCoordinates: Record<string, FormCoords> = {
 
   // Edelweiss Mutual Fund
   'Edelwess.common.Application form_0.pdf': {
-    arn: { x: 60, y: 710, size: 8.5 },
-    euin: { x: 240, y: 710, size: 8.5 },
+    arn: { x: 55, y: 755, size: 8 },
+    euin: { x: 210, y: 755, size: 8 },
   },
   'edelweiss.app.sip.pdf': {
     arn: { x: 88, y: 708, size: 8.5, numberOnly: true },

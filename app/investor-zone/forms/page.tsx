@@ -141,8 +141,8 @@ export default function FormsPage() {
     amc.name.toLowerCase().includes(searchQuery.toLowerCase())
   )
 
-  const handleDownload = async (fileName: string, displayName: string) => {
-    setDownloadingFile(fileName)
+  const handleDownload = async (key: string, fileName: string, displayName: string) => {
+    setDownloadingFile(key)
     try {
       await downloadPrefilledPDF(
         fileName,
@@ -270,37 +270,55 @@ export default function FormsPage() {
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-auto">
-                    {/* Common Application Form */}
-                    {amc.commonFile && (
-                    <button
-                      onClick={() => handleDownload(amc.commonFile!, `${amc.name} Common Application Form`)}
-                      disabled={downloadingFile !== null}
-                      className="flex items-center justify-center gap-2 py-3 px-4 bg-gray-50 hover:bg-[#0b4c8c]/5 hover:text-[#0b4c8c] text-gray-700 text-xs font-semibold rounded-xl border border-gray-100 hover:border-[#0b4c8c]/20 transition-all cursor-pointer disabled:opacity-50"
-                    >
-                      {downloadingFile === amc.commonFile ? (
-                        <div className="w-4 h-4 border-2 border-[#0b4c8c] border-t-transparent rounded-full animate-spin"></div>
-                      ) : (
-                        <Download className="w-4 h-4" />
-                      )}
-                      <span>Common Application Form</span>
-                    </button>
-                    )}
+                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-auto">
+                    {amc.commonFile === amc.sipFile ? (
+                      /* Single Combined Form Button */
+                      <button
+                        onClick={() => handleDownload(`${amc.id}-combined`, amc.commonFile!, `${amc.name} Application & SIP Form`)}
+                        disabled={downloadingFile !== null}
+                        className="col-span-1 sm:col-span-2 flex items-center justify-center gap-2 py-3 px-4 bg-gradient-to-r from-gray-50 to-gray-100 hover:from-[#0b4c8c]/5 hover:to-[#0b4c8c]/10 hover:text-[#0b4c8c] text-gray-700 text-xs font-semibold rounded-xl border border-gray-100 hover:border-[#0b4c8c]/20 transition-all cursor-pointer disabled:opacity-50"
+                      >
+                        {downloadingFile === `${amc.id}-combined` ? (
+                          <div className="w-4 h-4 border-2 border-[#0b4c8c] border-t-transparent rounded-full animate-spin"></div>
+                        ) : (
+                          <Download className="w-4 h-4" />
+                        )}
+                        <span>Application & SIP Form</span>
+                      </button>
+                    ) : (
+                      <>
+                        {/* Common Application Form */}
+                        {amc.commonFile && (
+                          <button
+                            onClick={() => handleDownload(`${amc.id}-common`, amc.commonFile!, `${amc.name} Common Application Form`)}
+                            disabled={downloadingFile !== null}
+                            className="flex items-center justify-center gap-2 py-3 px-4 bg-gray-50 hover:bg-[#0b4c8c]/5 hover:text-[#0b4c8c] text-gray-700 text-xs font-semibold rounded-xl border border-gray-100 hover:border-[#0b4c8c]/20 transition-all cursor-pointer disabled:opacity-50"
+                          >
+                            {downloadingFile === `${amc.id}-common` ? (
+                              <div className="w-4 h-4 border-2 border-[#0b4c8c] border-t-transparent rounded-full animate-spin"></div>
+                            ) : (
+                              <Download className="w-4 h-4" />
+                            )}
+                            <span>Common Application Form</span>
+                          </button>
+                        )}
 
-                    {/* SIP Form */}
-                    {amc.sipFile && (
-                    <button
-                      onClick={() => handleDownload(amc.sipFile!, `${amc.name} SIP Form`)}
-                      disabled={downloadingFile !== null}
-                      className="flex items-center justify-center gap-2 py-3 px-4 bg-[#2d9d43]/5 hover:bg-[#2d9d43]/10 text-[#2d9d43] hover:text-[#258537] text-xs font-bold rounded-xl border border-[#2d9d43]/10 hover:border-[#2d9d43]/20 transition-all cursor-pointer disabled:opacity-50"
-                    >
-                      {downloadingFile === amc.sipFile ? (
-                        <div className="w-4 h-4 border-2 border-[#2d9d43] border-t-transparent rounded-full animate-spin"></div>
-                      ) : (
-                        <Download className="w-4 h-4" />
-                      )}
-                      <span>SIP Form</span>
-                    </button>
+                        {/* SIP Form */}
+                        {amc.sipFile && (
+                          <button
+                            onClick={() => handleDownload(`${amc.id}-sip`, amc.sipFile!, `${amc.name} SIP Form`)}
+                            disabled={downloadingFile !== null}
+                            className="flex items-center justify-center gap-2 py-3 px-4 bg-[#2d9d43]/5 hover:bg-[#2d9d43]/10 text-[#2d9d43] hover:text-[#258537] text-xs font-bold rounded-xl border border-[#2d9d43]/10 hover:border-[#2d9d43]/20 transition-all cursor-pointer disabled:opacity-50"
+                          >
+                            {downloadingFile === `${amc.id}-sip` ? (
+                              <div className="w-4 h-4 border-2 border-[#2d9d43] border-t-transparent rounded-full animate-spin"></div>
+                            ) : (
+                              <Download className="w-4 h-4" />
+                            )}
+                            <span>SIP Form</span>
+                          </button>
+                        )}
+                      </>
                     )}
                   </div>
                 </div>
