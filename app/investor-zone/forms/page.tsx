@@ -34,99 +34,99 @@ const amcList: {
     id: 'axis',
     name: 'Axis Mutual Fund',
     logoBg: 'bg-rose-50 text-rose-700 border-rose-100',
-    commonFile: 'Axis_Common_Transaction_Slip.pdf',
-    sipFile: 'Axis_SIP_Form.pdf'
+    commonFile: 'Axis-Common-Application-Form-with-SIP.pdf',
+    sipFile: 'Axis-Common-Application-Form-with-SIP.pdf'
   },
   {
     id: 'bandhan',
     name: 'Bandhan Mutual Fund',
     logoBg: 'bg-orange-50 text-orange-700 border-orange-100',
-    commonFile: 'Bandhan_Common_Transaction_Slip.pdf',
-    sipFile: 'Bandhan_SIP_Form.pdf'
+    commonFile: 'bandhan.app.sip.pdf',
+    sipFile: 'bandhan.app.sip.pdf'
   },
   {
     id: 'boi',
     name: 'BOI Mutual Fund',
     logoBg: 'bg-blue-50 text-blue-700 border-blue-100',
-    commonFile: 'BOI_Common_Transaction_Slip.pdf',
-    sipFile: 'BOI_SIP_Form.pdf'
+    commonFile: 'BOI_ApplicationForm_0.pdf',
+    sipFile: 'BOI-sip.pdf'
   },
   {
     id: 'edelweiss',
     name: 'Edelweiss Mutual Fund',
     logoBg: 'bg-cyan-50 text-cyan-700 border-cyan-100',
-    commonFile: 'Edelweiss_Common_Transaction_Slip.pdf',
-    sipFile: 'Edelweiss_SIP_Form.pdf'
+    commonFile: 'Edelwess.common.Application form_0.pdf',
+    sipFile: 'edelweiss.app.sip.pdf'
   },
   {
     id: 'hdfc',
     name: 'HDFC Mutual Fund',
     logoBg: 'bg-emerald-50 text-emerald-700 border-emerald-100',
-    commonFile: 'HDFC_Common_Transaction_Slip.pdf',
-    sipFile: 'HDFC_SIP_Form.pdf',
+    commonFile: 'HDFC-Common-Application-Form.pdf',
+    sipFile: 'hdfc.app.sip.pdf',
   },
   {
     id: 'icici',
     name: 'ICICI Prudential Mutual Fund',
     logoBg: 'bg-indigo-50 text-indigo-700 border-indigo-100',
-    commonFile: 'ICICI_Common_Transaction_Slip.pdf',
-    sipFile: 'ICICI_SIP_Form.pdf'
+    commonFile: 'icici-app sip.pdf',
+    sipFile: 'icici-app sip.pdf'
   },
   {
     id: 'invesco',
     name: 'Invesco Mutual Fund',
     logoBg: 'bg-purple-50 text-purple-700 border-purple-100',
-    commonFile: 'Invesco_Common_Transaction_Slip.pdf',
-    sipFile: 'Invesco_SIP_Form.pdf'
+    commonFile: 'invesco.app.sip.pdf',
+    sipFile: 'invesco.app.sip.pdf'
   },
   {
     id: 'jm',
     name: 'JM Financial Mutual Fund',
     logoBg: 'bg-teal-50 text-teal-700 border-teal-100',
-    commonFile: 'JM_Common_Transaction_Slip.pdf',
-    sipFile: 'JM_SIP_Form.pdf'
+    commonFile: 'JM-Application Forms (2).pdf',
+    sipFile: 'JM-Application Forms (2).pdf'
   },
   {
     id: 'kotak',
     name: 'Kotak Mutual Fund',
     logoBg: 'bg-amber-50 text-amber-700 border-amber-100',
-    commonFile: 'Kotak_Common_Transaction_Slip.pdf',
-    sipFile: 'Kotak_SIP_Form.pdf'
+    commonFile: 'Kotak-Common-Application-Form-with-SIP.pdf',
+    sipFile: 'Kotak-Common-Application-Form-with-SIP.pdf'
   },
   {
     id: 'mirae',
     name: 'Mirae Asset Mutual Fund',
     logoBg: 'bg-sky-50 text-sky-700 border-sky-100',
-    commonFile: 'Mirae_Common_Transaction_Slip.pdf',
-    sipFile: 'Mirae_SIP_Form.pdf'
+    commonFile: 'mirae.app.sip.pdf',
+    sipFile: 'mirae.app.sip.pdf'
   },
   {
     id: 'motilal',
     name: 'Motilal Oswal Mutual Fund',
     logoBg: 'bg-red-50 text-red-700 border-red-100',
-    commonFile: 'Motilal_Common_Transaction_Slip.pdf',
-    sipFile: 'Motilal_SIP_Form.pdf'
+    commonFile: 'Motilal--Application-Form.pdf',
+    sipFile: 'Motilal-Common-Application-Form-with-SIP.pdf'
   },
   {
     id: 'nippon',
     name: 'Nippon India Mutual Fund',
     logoBg: 'bg-blue-50 text-[#0b4c8c] border-blue-100',
-    commonFile: 'Nippon_Common_Transaction_Slip.pdf',
-    sipFile: 'Nippon_SIP_Form.pdf',
+    commonFile: 'Nippon-app-SIP-FORM.pdf',
+    sipFile: 'Nippon-app-SIP-FORM.pdf',
   },
   {
     id: 'sundaram',
     name: 'Sundaram Mutual Fund',
     logoBg: 'bg-yellow-50 text-yellow-800 border-yellow-100',
-    commonFile: 'Sundaram_Common_Transaction_Slip.pdf',
-    sipFile: 'Sundaram_SIP_Form.pdf'
+    commonFile: 'Sundaram-Common-Application-Form-with-SIP.pdf',
+    sipFile: 'Sundaram-Common-Application-Form-with-SIP.pdf'
   },
   {
     id: 'whiteoak',
     name: 'WhiteOak Capital Mutual Fund',
     logoBg: 'bg-violet-50 text-violet-700 border-violet-100',
-    commonFile: 'WhiteOak_Common_Transaction_Slip.pdf',
-    sipFile: 'WhiteOak_SIP_Form.pdf'
+    commonFile: 'whiteoak.common_Application_Form_96f2378ffb.pdf',
+    sipFile: 'whiteoak.sip.pdf'
   }
 ]
 

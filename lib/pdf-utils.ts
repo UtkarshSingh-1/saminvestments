@@ -10,7 +10,8 @@ export async function prefillPDF(
   arn: string,
   euin: string
 ): Promise<Uint8Array> {
-  const fileUrl = `/forms/${fileName}`;
+  const encodedFileName = encodeURIComponent(fileName);
+  const fileUrl = `/forms/${encodedFileName}`;
   const response = await fetch(fileUrl);
   if (!response.ok) {
     throw new Error(`Failed to fetch form: ${response.statusText}`);
@@ -31,8 +32,6 @@ export async function prefillPDF(
       const fields = form.getFields();
       for (const field of fields) {
         const name = field.getName().toLowerCase();
-        
-        // Clean name from brackets/indexes
         const cleanName = name.replace(/[\[\].\d]/g, '');
 
         const isSubField = cleanName.includes('sub') || cleanName.includes('ria') || cleanName.includes('internal') || cleanName.includes('employee');
@@ -48,7 +47,6 @@ export async function prefillPDF(
           }
         }
       }
-      // Flatten AFTER all fields have been filled (was incorrectly inside the loop)
       if (filledArnInteractive || filledEuinInteractive) {
         form.flatten();
       }
@@ -57,7 +55,7 @@ export async function prefillPDF(
     console.warn('Form field filling skipped:', e);
   }
 
-  // 1.5 Clean non-widget annotations on page 1 (FreeText overlays that bypass masks)
+  // 1.5 Clean non-widget annotations on page 1
   const pages = pdfDoc.getPages();
   if (pages.length > 0) {
     const page = pages[0];
@@ -70,7 +68,6 @@ export async function prefillPDF(
             const subtypeObj = annot.get(annot.context.obj('Subtype'));
             if (subtypeObj) {
               const subtype = subtypeObj.toString();
-              // Remove text, stamp, or freetext overlays that may contain prefilled details
               if (subtype !== '/Widget') {
                 annots.remove(i);
               }
@@ -85,78 +82,124 @@ export async function prefillPDF(
 
   // 2. Draw text coordinates or fallback stamp
   if (pages.length > 0) {
-    const page = pages[0];
-    const { width, height } = page.getSize();
-    
     const font = await pdfDoc.embedFont(StandardFonts.HelveticaBold);
-    const regularFont = await pdfDoc.embedFont(StandardFonts.Helvetica);
-    
-    const coords = formsCoordinates[fileName];
-    
-    // Clean code representations (just the digits/letters)
-    const cleanArn = arn.replace('ARN-', '');
-    
+    const cleanArn = arn.replace(/^ARN-?/i, '');
+    const cleanEuin = euin.replace(/^E-?/i, '');
+
     if (coords) {
-      // Draw white masks to cover up any pre-existing prefilled numbers
-      if (coords.masks) {
-        for (const mask of coords.masks) {
-          page.drawRectangle({
-            x: mask.x,
-            y: mask.y,
-            width: mask.width,
-            height: mask.height,
-            color: rgb(1, 1, 1),
+      if (coords.pages && coords.pages.length > 0) {
+        // Multi-page prefilling support
+        for (const pConfig of coords.pages) {
+          if (pConfig.pageIndex < pages.length) {
+            const page = pages[pConfig.pageIndex];
+
+            // Draw white masks for this page
+            if (pConfig.masks) {
+              for (const mask of pConfig.masks) {
+                page.drawRectangle({
+                  x: mask.x,
+                  y: mask.y,
+                  width: mask.width,
+                  height: mask.height,
+                  color: rgb(1, 1, 1),
+                });
+              }
+            }
+
+            // Draw ARN for this page
+            if (pConfig.arn) {
+              const useNumberOnly = pConfig.arn.numberOnly || coords.numberOnly;
+              const arnTextToDraw = useNumberOnly ? cleanArn : arn;
+              page.drawText(arnTextToDraw, {
+                x: pConfig.arn.x,
+                y: pConfig.arn.y,
+                size: pConfig.arn.size || 8.5,
+                font,
+                color: rgb(0, 0, 0),
+              });
+            }
+
+            // Draw EUIN for this page
+            if (pConfig.euin && euin) {
+              const useEuinNumberOnly = pConfig.euin.numberOnly;
+              const euinTextToDraw = useEuinNumberOnly ? cleanEuin : euin;
+              page.drawText(euinTextToDraw, {
+                x: pConfig.euin.x,
+                y: pConfig.euin.y,
+                size: pConfig.euin.size || 8.5,
+                font,
+                color: rgb(0, 0, 0),
+              });
+            }
+          }
+        }
+      } else {
+        // Default single page prefilling on page 1
+        const page = pages[0];
+        
+        // Draw white masks
+        if (coords.masks) {
+          for (const mask of coords.masks) {
+            page.drawRectangle({
+              x: mask.x,
+              y: mask.y,
+              width: mask.width,
+              height: mask.height,
+              color: rgb(1, 1, 1),
+            });
+          }
+        }
+
+        // Draw ARN
+        if (coords.arn) {
+          const useNumberOnly = coords.arn.numberOnly || coords.numberOnly;
+          const arnTextToDraw = useNumberOnly ? cleanArn : arn;
+          page.drawText(arnTextToDraw, {
+            x: coords.arn.x,
+            y: coords.arn.y,
+            size: coords.arn.size || 8.5,
+            font,
+            color: rgb(0, 0, 0),
+          });
+        }
+        
+        // Draw EUIN
+        if (coords.euin && euin) {
+          const useEuinNumberOnly = coords.euin.numberOnly;
+          const euinTextToDraw = useEuinNumberOnly ? cleanEuin : euin;
+          page.drawText(euinTextToDraw, {
+            x: coords.euin.x,
+            y: coords.euin.y,
+            size: coords.euin.size || 8.5,
+            font,
+            color: rgb(0, 0, 0),
           });
         }
       }
-
-      // Draw ARN
-      if (coords.arn) {
-        const useNumberOnly = coords.arn.numberOnly || coords.numberOnly;
-        const arnTextToDraw = useNumberOnly ? cleanArn : arn;
-        page.drawText(arnTextToDraw, {
-          x: coords.arn.x,
-          y: coords.arn.y,
-          size: coords.arn.size || 8.5,
-          font,
-          color: rgb(0, 0, 0),
-        });
-      }
-      
-      // Draw EUIN
-      if (coords.euin && euin) {
-        page.drawText(euin, {
-          x: coords.euin.x,
-          y: coords.euin.y,
-          size: coords.euin.size || 8.5,
-          font,
-          color: rgb(0, 0, 0),
-        });
-      }
     } else {
-      // Fallback stamp: draw a clean stamp at the top margin
-      // Draw white background banner
+      // Fallback stamp across page 1
+      const page = pages[0];
+      const { width, height } = page.getSize();
+
       page.drawRectangle({
         x: 0,
-        y: height - 25,
+        y: height - 22,
         width: width,
-        height: 25,
-        color: rgb(0.95, 0.97, 1.0), // Very light blue
+        height: 22,
+        color: rgb(0.95, 0.97, 1.0),
       });
       
-      // Border below banner
       page.drawLine({
-        start: { x: 0, y: height - 25 },
-        end: { x: width, y: height - 25 },
+        start: { x: 0, y: height - 22 },
+        end: { x: width, y: height - 22 },
         thickness: 1,
-        color: rgb(0.04, 0.3, 0.55), // Brand color #0b4c8c
+        color: rgb(0.04, 0.3, 0.55),
       });
 
-      // Text label inside banner
       page.drawText(`DISTRIBUTOR: SAM INVESTMENTS   |   ARN: ${arn}   |   EUIN: ${euin}`, {
-        x: 20,
-        y: height - 17,
-        size: 9,
+        x: 15,
+        y: height - 15,
+        size: 8.5,
         font,
         color: rgb(0.04, 0.3, 0.55),
       });
@@ -178,9 +221,7 @@ export async function downloadPrefilledPDF(
   try {
     const pdfBytes = await prefillPDF(fileName, arn, euin);
     const blob = new Blob([pdfBytes], { type: 'application/pdf' });
-    
-    // Construct nice looking output filename: Axis Mutual Fund Common Application Form (Prefilled).pdf
-    const downloadName = `${displayName} (Prefilled).pdf`;
+    const downloadName = `${displayName}.pdf`;
 
     const link = document.createElement('a');
     link.href = URL.createObjectURL(blob);
@@ -188,17 +229,16 @@ export async function downloadPrefilledPDF(
     document.body.appendChild(link);
     link.click();
     
-    // Cleanup
     document.body.removeChild(link);
     URL.revokeObjectURL(link.href);
   } catch (error) {
     console.error('Download failed:', error);
     alert('Failed to generate prefilled PDF form. Downloading the original instead.');
     
-    // Fallback: Download the raw original PDF
+    // Fallback: Download raw original PDF
     const link = document.createElement('a');
-    link.href = `/forms/${fileName}`;
-    link.download = fileName;
+    link.href = `/forms/${encodeURIComponent(fileName)}`;
+    link.download = `${displayName}.pdf`;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
