@@ -65,7 +65,7 @@ export default function Navbar() {
               Investor Zone
               <ChevronDown className="w-4 h-4 group-hover:rotate-180 transition-transform duration-200" />
             </span>
-            <div className="absolute left-0 top-full mt-2 w-56 rounded-xl bg-white shadow-xl border border-gray-100 hidden group-hover:block p-1.5">
+            <div className="absolute left-0 top-full mt-2 w-56 rounded-xl bg-white shadow-xl border border-gray-100 hidden group-hover:block p-1.5 before:content-[''] before:absolute before:-top-2 before:left-0 before:right-0 before:h-2">
               {investorLinks.map(link => (
                 <Link
                   key={link.href}
