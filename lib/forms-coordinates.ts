@@ -42,12 +42,12 @@ export const formsCoordinates: Record<string, FormCoords> = {
 
   // BOI
   'BOI_Common_Transaction_Slip.pdf': {
-    arn: { x: 40, y: 550, size: 8 },
-    euin: { x: 235, y: 550, size: 8 },
+    arn: { x: 35, y: 732, size: 8 },
+    euin: { x: 235, y: 732, size: 8 },
   },
   'BOI_SIP_Form.pdf': {
-    arn: { x: 40, y: 478, size: 8 },
-    euin: { x: 235, y: 478, size: 8 },
+    arn: { x: 35, y: 730, size: 8 },
+    euin: { x: 235, y: 730, size: 8 },
   },
 
   // Edelweiss
@@ -86,8 +86,8 @@ export const formsCoordinates: Record<string, FormCoords> = {
 
   // Invesco
   'Invesco_Common_Transaction_Slip.pdf': {
-    arn: { x: 65, y: 682, size: 8, numberOnly: true },
-    euin: { x: 315, y: 682, size: 8 },
+    arn: { x: 55, y: 724, size: 8, numberOnly: true },
+    euin: { x: 275, y: 724, size: 8 },
   },
   'Invesco_SIP_Form.pdf': {
     arn: { x: 275, y: 744, size: 7.5, numberOnly: true },
