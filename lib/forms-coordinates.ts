@@ -2,6 +2,7 @@ export interface FormFieldCoords {
   x: number;
   y: number;
   size?: number;
+  numberOnly?: boolean;
 }
 
 export interface MaskBox {
@@ -15,138 +16,146 @@ export interface FormCoords {
   arn?: FormFieldCoords;
   euin?: FormFieldCoords;
   masks?: MaskBox[];
+  numberOnly?: boolean;
+  pages?: {
+    pageIndex: number;
+    arn?: FormFieldCoords;
+    euin?: FormFieldCoords;
+    masks?: MaskBox[];
+  }[];
 }
 
 export const formsCoordinates: Record<string, FormCoords> = {
-  // Axis
+  // Axis Mutual Fund (Common App + SIP)
+  'Axis-Common-Application-Form-with-SIP.pdf': {
+    arn: { x: 75, y: 648, size: 8.5, numberOnly: true },
+    euin: { x: 82, y: 622, size: 8.5 },
+  },
   'Axis_Common_Transaction_Slip.pdf': {
-    arn: { x: 30, y: 726, size: 8 },
-    euin: { x: 350, y: 726, size: 8 },
-  },
-  'Axis_SIP_Form.pdf': {
-    arn: { x: 48, y: 648, size: 8 },
-    euin: { x: 48, y: 622, size: 8 },
+    arn: { x: 75, y: 648, size: 8.5, numberOnly: true },
+    euin: { x: 82, y: 622, size: 8.5 },
   },
 
-  // Bandhan
-  'Bandhan_Common_Transaction_Slip.pdf': {
-    arn: { x: 35, y: 700, size: 8.5 },
-    euin: { x: 315, y: 700, size: 8.5 },
-  },
-  'Bandhan_SIP_Form.pdf': {
-    arn: { x: 35, y: 694, size: 8 },   // data row (not header which is at y≈702)
-    euin: { x: 315, y: 694, size: 8 }, // EUIN field data row
+  // Bandhan Mutual Fund
+  'bandhan.app.sip.pdf': {
+    arn: { x: 70, y: 722, size: 8.5, numberOnly: true },
+    euin: { x: 345, y: 722, size: 8.5, numberOnly: true },
   },
 
-  // Edelweiss
-  'Edelweiss_Common_Transaction_Slip.pdf': {
-    arn: { x: 63, y: 698, size: 8 },
-    euin: { x: 175, y: 698, size: 8 },
+  // BOI Mutual Fund
+  'BOI_ApplicationForm_0.pdf': {
+    arn: { x: 65, y: 720, size: 8.5 },
+    euin: { x: 235, y: 720, size: 8.5 },
   },
-  'Edelweiss_SIP_Form.pdf': {
-    arn: { x: 63, y: 695, size: 8 },
-    euin: { x: 277, y: 695, size: 8 },
-    masks: [
-      { x: 60, y: 690, width: 60, height: 18 },
-      { x: 274, y: 690, width: 60, height: 18 }
-    ]
+  'BOI-sip.pdf': {
+    arn: { x: 65, y: 692, size: 8.5 },
+    euin: { x: 235, y: 692, size: 8.5 },
   },
 
-  // HDFC
-  'HDFC_SIP_Form.pdf': {
-    arn: { x: 88, y: 690, size: 8 },
+  // Edelweiss Mutual Fund
+  'Edelwess.common.Application form_0.pdf': {
+    arn: { x: 60, y: 710, size: 8.5 },
+    euin: { x: 240, y: 710, size: 8.5 },
+  },
+  'edelweiss.app.sip.pdf': {
+    arn: { x: 88, y: 708, size: 8.5, numberOnly: true },
+    euin: { x: 375, y: 708, size: 8.5 },
+  },
+
+  // HDFC Mutual Fund
+  'HDFC-Common-Application-Form.pdf': {
+    arn: { x: 98, y: 668, size: 8, numberOnly: true },
+    euin: { x: 380, y: 668, size: 8 },
+  },
+  'hdfc.app.sip.pdf': {
+    arn: { x: 88, y: 690, size: 8, numberOnly: true },
     euin: { x: 430, y: 690, size: 8 },
   },
 
-  // ICICI
-  'ICICI_Common_Transaction_Slip.pdf': {
-    arn: { x: 38, y: 788, size: 8 },
-    euin: { x: 285, y: 788, size: 8 },
-  },
-  'ICICI_SIP_Form.pdf': {
-    arn: { x: 60, y: 712, size: 8 },
-    euin: { x: 515, y: 694, size: 8 },
-  },
-
-  // Invesco
-  'Invesco_SIP_Form.pdf': {
-    arn: { x: 275, y: 744, size: 7.5 },  // Distributor ARN input box (Key Partner/Agent Info table)
-    euin: { x: 248, y: 715, size: 7.5 }, // Employee Unique Identification No. (EUIN) input row
-  },
-
-  // JM Financial
-  'JM_Common_Transaction_Slip.pdf': {
-    arn: { x: 55, y: 692, size: 8.5 }, // Calibrated to avoid Y=678 declaration overlap
-    euin: { x: 138, y: 692, size: 8.5 }, // Calibrated next to E label
-  },
-  'JM_SIP_Form.pdf': {
-    arn: { x: 52, y: 745, size: 8 },   // data row in Distributor Code column
-    euin: { x: 345, y: 745, size: 8 }, // Employee Unique column
-  },
-
-  // Kotak
-  'Kotak_SIP_Form.pdf': {
-    arn: { x: 98, y: 755, size: 8 },
-    euin: { x: 515, y: 755, size: 8 },
-  },
-
-  // Mirae Asset
-  'Mirae_Common_Transaction_Slip.pdf': {
-    arn: { x: 30, y: 748, size: 8 },
-    euin: { x: 400, y: 748, size: 8 },
-  },
-  'Mirae_SIP_Form.pdf': {
-    arn: { x: 68, y: 728, size: 8 },
-    euin: { x: 348, y: 728, size: 8 },
-  },
-
-  // Motilal Oswal
-  'Motilal_Common_Transaction_Slip.pdf': {
-    arn: { x: 194, y: 740, size: 8 },
-    euin: { x: 446, y: 740, size: 8 },
-    masks: [
-      { x: 190, y: 735, width: 115, height: 18 },
-      { x: 442, y: 735, width: 65, height: 18 }
-    ]
-  },
-  'Motilal_SIP_Form.pdf': {
-    arn: { x: 36, y: 755, size: 8 },
-    masks: [
-      { x: 32, y: 750, width: 80, height: 18 }
+  // ICICI Prudential Mutual Fund (Combined Common App + SIP Mandate)
+  'icici-app sip.pdf': {
+    arn: { x: 50, y: 758, size: 8.5 },
+    euin: { x: 520, y: 758, size: 8.5 },
+    pages: [
+      {
+        pageIndex: 0,
+        arn: { x: 50, y: 758, size: 8.5 },
+        euin: { x: 520, y: 758, size: 8.5 }
+      },
+      {
+        pageIndex: 1,
+        arn: { x: 50, y: 485, size: 8.5 },
+        euin: { x: 520, y: 485, size: 8.5 }
+      },
+      {
+        pageIndex: 3,
+        arn: { x: 50, y: 215, size: 8.5 },
+        euin: { x: 520, y: 215, size: 8.5 }
+      }
     ]
   },
 
-  // Nippon India
-  'Nippon_Common_Transaction_Slip.pdf': {
-    arn: { x: 22, y: 746, size: 8 },   // Name & ARN Code column data row
-    euin: { x: 378, y: 746, size: 8 }, // *Employee Unique Identification Number column data row
-  },
-  'Nippon_SIP_Form.pdf': {
-    arn: { x: 15, y: 751, size: 8 },   // data row below "Name & ARN Code" header at y=760
-    euin: { x: 358, y: 751, size: 8 }, // *Employee Unique Identification Number column (4th)
+  // Invesco Mutual Fund
+  'invesco.app.sip.pdf': {
+    arn: { x: 275, y: 728, size: 7.5, numberOnly: true },
+    euin: { x: 275, y: 690, size: 7.5 },
   },
 
-  // Sundaram
-  'Sundaram_Common_Transaction_Slip.pdf': {
-    arn: { x: 52, y: 766, size: 8 }, // Calibrated to avoid proximity overlap
-    euin: { x: 408, y: 766, size: 8 },
+  // JM Financial Mutual Fund
+  'JM-Application Forms (2).pdf': {
+    arn: { x: 75, y: 644, size: 8.5, numberOnly: true },
+    euin: { x: 138, y: 644, size: 8.5, numberOnly: true },
   },
-  'Sundaram_SIP_Form.pdf': {
-    arn: { x: 55, y: 775, size: 8 },
-    euin: { x: 330, y: 775, size: 7.5 }, // moved from x=268 (Sub-broker col) to EUIN column (4th)
+
+  // Kotak Mutual Fund
+  'Kotak-Common-Application-Form-with-SIP.pdf': {
+    arn: { x: 75, y: 760, size: 8, numberOnly: true },
+    euin: { x: 500, y: 760, size: 8 },
+  },
+
+  // Mirae Asset Mutual Fund
+  'mirae.app.sip.pdf': {
+    arn: { x: 30, y: 708, size: 8 },
+    euin: { x: 320, y: 708, size: 8 },
+  },
+
+  // Motilal Oswal Mutual Fund
+  'Motilal--Application-Form.pdf': {
+    arn: { x: 25, y: 715, size: 8 },
+    euin: { x: 486, y: 715, size: 8 },
     masks: [
-      { x: 52, y: 770, width: 60, height: 18 },     // cover pre-printed ARN area
-      { x: 327, y: 770, width: 115, height: 14 }    // cover pre-printed char boxes in EUIN column
+      { x: 20, y: 711, width: 95, height: 15 },
+      { x: 481, y: 711, width: 93, height: 15 }
+    ]
+  },
+  'Motilal-Common-Application-Form-with-SIP.pdf': {
+    arn: { x: 25, y: 715, size: 8 },
+    euin: { x: 486, y: 715, size: 8 },
+    masks: [
+      { x: 20, y: 711, width: 95, height: 15 },
+      { x: 481, y: 711, width: 93, height: 15 }
     ]
   },
 
-  // WhiteOak
-  'WhiteOak_Common_Transaction_Slip.pdf': {
-    arn: { x: 58, y: 712, size: 8 },
-    euin: { x: 349, y: 712, size: 8 },
+  // Nippon India Mutual Fund
+  'Nippon-app-SIP-FORM.pdf': {
+    arn: { x: 22, y: 746, size: 8, numberOnly: true },
+    euin: { x: 378, y: 746, size: 8 },
   },
-  'WhiteOak_SIP_Form.pdf': {
-    arn: { x: 80, y: 721, size: 8 },
-    euin: { x: 412, y: 721, size: 8 },
+
+  // Sundaram Mutual Fund
+  'Sundaram-Common-Application-Form-with-SIP.pdf': {
+    arn: { x: 30, y: 746, size: 8 },
+    euin: { x: 330, y: 746, size: 8 },
+  },
+
+  // WhiteOak Capital Mutual Fund
+  'whiteoak.common_Application_Form_96f2378ffb.pdf': {
+    arn: { x: 40, y: 680, size: 8 },
+    euin: { x: 325, y: 680, size: 8 },
+  },
+  'whiteoak.sip.pdf': {
+    arn: { x: 40, y: 689, size: 8 },
+    euin: { x: 325, y: 689, size: 8 },
   },
 };
