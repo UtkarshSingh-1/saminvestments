@@ -41,7 +41,7 @@ const amcList: {
     id: 'bandhan',
     name: 'Bandhan Mutual Fund',
     logoBg: 'bg-orange-50 text-orange-700 border-orange-100',
-    commonFile: null, // removed: had another distributor's ARN-272753/E513200 pre-filled
+    commonFile: 'Bandhan_Common_Transaction_Slip.pdf',
     sipFile: 'Bandhan_SIP_Form.pdf'
   },
   {
@@ -63,7 +63,7 @@ const amcList: {
     name: 'HDFC Mutual Fund',
     logoBg: 'bg-emerald-50 text-emerald-700 border-emerald-100',
     commonFile: 'HDFC_Common_Transaction_Slip.pdf',
-    sipFile: null, // removed: had another distributor's EUIN (E100378) pre-filled
+    sipFile: 'HDFC_SIP_Form.pdf',
   },
   {
     id: 'icici',
@@ -112,7 +112,7 @@ const amcList: {
     name: 'Nippon India Mutual Fund',
     logoBg: 'bg-blue-50 text-[#0b4c8c] border-blue-100',
     commonFile: 'Nippon_Common_Transaction_Slip.pdf',
-    sipFile: null, // removed: had another distributor's EUIN (E347831) pre-filled
+    sipFile: 'Nippon_SIP_Form.pdf',
   },
   {
     id: 'sundaram',

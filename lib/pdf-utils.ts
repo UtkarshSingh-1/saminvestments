@@ -112,7 +112,9 @@ export async function prefillPDF(
 
       // Draw ARN
       if (coords.arn) {
-        page.drawText(arn, {
+        const useNumberOnly = coords.arn.numberOnly || coords.numberOnly;
+        const arnTextToDraw = useNumberOnly ? cleanArn : arn;
+        page.drawText(arnTextToDraw, {
           x: coords.arn.x,
           y: coords.arn.y,
           size: coords.arn.size || 8.5,
