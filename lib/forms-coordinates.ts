@@ -42,12 +42,12 @@ export const formsCoordinates: Record<string, FormCoords> = {
 
   // BOI
   'BOI_Common_Transaction_Slip.pdf': {
-    arn: { x: 30, y: 732, size: 8 },
-    euin: { x: 320, y: 732, size: 8 },
+    arn: { x: 40, y: 550, size: 8 },
+    euin: { x: 235, y: 550, size: 8 },
   },
   'BOI_SIP_Form.pdf': {
-    arn: { x: 30, y: 732, size: 8 },
-    euin: { x: 320, y: 732, size: 8 },
+    arn: { x: 40, y: 478, size: 8 },
+    euin: { x: 235, y: 478, size: 8 },
   },
 
   // Edelweiss
@@ -66,8 +66,8 @@ export const formsCoordinates: Record<string, FormCoords> = {
 
   // HDFC
   'HDFC_Common_Transaction_Slip.pdf': {
-    arn: { x: 88, y: 752, size: 8 },
-    euin: { x: 420, y: 752, size: 8 },
+    arn: { x: 75, y: 724, size: 8, numberOnly: true },
+    euin: { x: 450, y: 724, size: 8 },
   },
   'HDFC_SIP_Form.pdf': {
     arn: { x: 88, y: 690, size: 8, numberOnly: true },
@@ -86,8 +86,8 @@ export const formsCoordinates: Record<string, FormCoords> = {
 
   // Invesco
   'Invesco_Common_Transaction_Slip.pdf': {
-    arn: { x: 270, y: 744, size: 7.5 },
-    euin: { x: 248, y: 715, size: 7.5 },
+    arn: { x: 65, y: 682, size: 8, numberOnly: true },
+    euin: { x: 315, y: 682, size: 8 },
   },
   'Invesco_SIP_Form.pdf': {
     arn: { x: 275, y: 744, size: 7.5, numberOnly: true },
@@ -106,8 +106,8 @@ export const formsCoordinates: Record<string, FormCoords> = {
 
   // Kotak
   'Kotak_Common_Transaction_Slip.pdf': {
-    arn: { x: 98, y: 755, size: 8 },
-    euin: { x: 515, y: 755, size: 8 },
+    arn: { x: 75, y: 742, size: 8, numberOnly: true },
+    euin: { x: 295, y: 742, size: 8 },
   },
   'Kotak_SIP_Form.pdf': {
     arn: { x: 98, y: 755, size: 8 },
